@@ -64,7 +64,6 @@ public class Inventario{
     }
     public void addProduct(String nombre){
         File archivo = new File(nombre);
-        String[] infoproducto = new String[5];
 
         try { //try - catch para evitar errores
             BufferedWriter buffer = new BufferedWriter(new FileWriter(archivo,true));
@@ -81,12 +80,12 @@ public class Inventario{
                 System.out.println("Escriba el distribuidor del producto: ");
                 buffer.append(this.distr_producto = scanner.nextLine() + "\n");
             }
-            buffer.close();
+            buffer.close(); //cerrar el buffer fuera del bucle, sino tenemos que volverlo a abrir en algún punto
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
-
+    //Metodo para leer el archivo
     public String leerArchivo(String nombre){
         StringBuilder sB = new StringBuilder();
         File archivo = new File(nombre);

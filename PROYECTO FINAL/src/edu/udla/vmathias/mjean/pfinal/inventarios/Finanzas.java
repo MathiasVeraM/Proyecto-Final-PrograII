@@ -1,13 +1,15 @@
 package edu.udla.vmathias.mjean.pfinal.inventarios;
 public class Finanzas{
+    //establecen sus propiedades
     private float ganancias;
     private float perdidas;
     private int cant_rep;
     private float costo_rep;
     private float presupuesto;
+    //establece el constructor
     public Finanzas() {
     }
-
+    //establece los getters y setters
     public float getGanancias() {
         return ganancias;
     }
@@ -40,20 +42,22 @@ public class Finanzas{
         this.costo_rep = costo_rep;
     }
 
+    //metodo para calcular el valor a reponer en base a cuantos productos necesiten reponer
     public float calculoValrep(int x){
         if(x % 2 == 0){
-            this.costo_rep = 5.6F;
+            this.costo_rep = x * 4.68F;
         }else{
-            this.costo_rep = 6.4F;
+            this.costo_rep = x * 5.39F;
         }
         return this.costo_rep;
     }
 
+    //metodo para calcular el presupuesto
     public float presupuesto(float x, float y, float z){
         x = this.ganancias;
         y = this.perdidas;
         z = this.costo_rep;
 
-        return (x-(y-z));
+        return (x - (y + z));
     }
 }
